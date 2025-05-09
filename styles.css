@@ -1,0 +1,109 @@
+    :root {
+      --cosmic-light: #f8f9fa;
+      --cosmic-dark: #0f0c29;
+      --starlight: #f5f6fa;
+      --nebula-purple: #6c5ce7;
+      --supernova-pink: #e84393;
+      --sun-gold: #fdcb6e;
+      --moon-silver: #a4b0be;
+      --void-black: #1a1a2e;
+      --transition-all: all 0.8s cubic-bezier(0.77, 0, 0.175, 1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      width: 100%;
+      min-height: 100vh;
+      font-family: 'Space Mono', monospace;
+      transition: var(--transition-all);
+      background: var(--cosmic-light);
+      color: var(--void-black);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    body.dark-mode {
+      background: var(--cosmic-dark);
+      color: var(--starlight);
+    }
+
+    .cosmic-toggle {
+      position: relative;
+      width: 120px;
+      height: 60px;
+      margin: 2rem auto;
+      cursor: pointer;
+    }
+
+    .toggle-track {
+      width: 100%;
+      height: 100%;
+      background: #fff;
+      border-radius: 50px;
+      box-shadow: inset 0 0 10px rgba(0,0,0,0.1);
+      transition: var(--transition-all);
+      position: relative;
+    }
+
+    .dark-mode .toggle-track {
+      background: #1a1a2e;
+      box-shadow: inset 0 0 10px rgba(0,0,0,0.3);
+    }
+
+    .toggle-knob {
+      position: absolute;
+      width: 50px;
+      height: 50px;
+      top: 5px;
+      left: 5px;
+      background: #f1f2f6;
+      border-radius: 50%;
+      transition: transform 0.6s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .dark-mode .toggle-knob {
+      transform: translateX(60px);
+      background: #0f0c29;
+    }
+
+    .toggle-icon {
+      font-size: 1.5rem;
+      transition: var(--transition-all);
+    }
+
+    .sun-icon { color: var(--sun-gold); }
+    .moon-icon { color: var(--moon-silver); display: none; }
+
+    .dark-mode .sun-icon { display: none; }
+    .dark-mode .moon-icon { display: block; }
+
+    @media (max-width: 600px) {
+      .cosmic-toggle {
+        width: 100px;
+        height: 50px;
+      }
+
+      .toggle-knob {
+        width: 40px;
+        height: 40px;
+        top: 5px;
+        left: 5px;
+      }
+
+      .dark-mode .toggle-knob {
+        transform: translateX(50px);
+      }
+    }
+
+
